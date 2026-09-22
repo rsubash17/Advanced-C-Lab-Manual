@@ -13,12 +13,46 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+int main()
+{
+    int stack[10], n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &stack[i]);
+
+    printf("\nStack elements are:\n");
+    for(i = n - 1; i >= 0; i--)
+        printf("%d\n", stack[i]);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+```
+Enter the number of elements: 5
+Enter the elements:
+10
+20
+30
+40
+50
 
+Stack elements are:
+50
+40
+30
+20
+10
+```
 
 
 Result:
@@ -35,12 +69,43 @@ Algorithm:
 4.	Call the push function as needed.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+#define MAX 5
+
+int main()
+{
+    int stack[MAX], top = -1;
+    int element;
+
+    printf("Enter element to push: ");
+    scanf("%d", &element);
+
+    if (top == MAX - 1)
+        printf("Stack Overflow");
+    else
+    {
+        top++;
+        stack[top] = element;
+        printf("%d pushed into stack\n", element);
+
+        printf("Stack elements: ");
+        for (int i = top; i >= 0; i--)
+            printf("%d ", stack[i]);
+    }
+
+    return 0;
+}
+```
+
 
 Output:
-
-//paste your output here
+```
+Enter element to push: 25
+25 pushed into stack
+Stack elements: 25
+```
 
 
 
@@ -61,12 +126,42 @@ Algorithm:
 4.	Call the display function and perform other queue operations as needed.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+#define MAX 5
+
+int main()
+{
+    int queue[MAX], front = 0, rear = 4;
+    int i;
+
+    printf("Enter 5 queue elements:\n");
+
+    for(i = 0; i < MAX; i++)
+        scanf("%d", &queue[i]);
+
+    printf("Queue elements are: ");
+
+    for(i = front; i <= rear; i++)
+        printf("%d ", queue[i]);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+```
+Enter 5 queue elements:
+10
+20
+30
+40
+50
+
+Queue elements are: 10 20 30 40 50
+```
 
 
 Result:
@@ -85,12 +180,51 @@ Algorithm:
 4.	Call the enqueue function as needed.
 
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+#define MAX 5
+
+int main()
+{
+    int queue[MAX], rear = -1;
+    int n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        if(rear == MAX - 1)
+        {
+            printf("Queue Overflow");
+            break;
+        }
+
+        printf("Enter element: ");
+        scanf("%d", &queue[++rear]);
+    }
+
+    printf("Queue elements are: ");
+    for(i = 0; i <= rear; i++)
+        printf("%d ", queue[i]);
+
+    return 0;
+}
+```
+
 
 Output:
 
-//paste your output here
+```
+Enter number of elements: 4
+Enter element: 10
+Enter element: 20
+Enter element: 30
+Enter element: 40
+
+Queue elements are: 10 20 30 40
+```
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -120,13 +254,53 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+#define MAX 5
+
+int queue[MAX], front = 0, rear = 4;
+
+void delete()
+{
+    if (front > rear)
+        printf("Queue Underflow");
+    else
+    {
+        printf("Deleted element: %d\n", queue[front]);
+        front++;
+    }
+}
+
+int main()
+{
+    int i;
+
+    printf("Enter 5 queue elements:\n");
+    for(i = 0; i < MAX; i++)
+        scanf("%d", &queue[i]);
+
+    delete();
+
+    printf("Queue after deletion: ");
+    for(i = front; i <= rear; i++)
+        printf("%d ", queue[i]);
+
+    return 0;
+}
+```
 
 Output:
+```
+Enter 5 queue elements:
+10
+20
+30
+40
+50
 
-//paste your output here
-
-
+Deleted element: 10
+Queue after deletion: 20 30 40 50
+```
 Result:
 Thus, the function that deletes an element from a queue implemented using an array is verified successfully.
